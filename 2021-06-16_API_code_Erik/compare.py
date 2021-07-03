@@ -39,7 +39,16 @@ for i in range(len(dataframes_list)):
             #the position of i refers to both lists
             os.remove(mypath + files[i])
         #print which dfs were the same and which ones were different
+
+        #remove all dfs, which have a length = 0
+        y = len(dataframes_list[i])
+
+        if y == 0:
+            os.remove(mypath + files[i])
+
         print(i, i+1, x)
     else:
         pass
+
+
 
