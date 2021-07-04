@@ -10,6 +10,8 @@ mypath = r"C:\Users\Erik\Documents\GitHub\big_data_youtube\2021-06-16_API_code_E
 #create a list with all filenames
 files = [f for f in listdir(mypath)]
 
+print(files)
+"""
 #create empty df list
 dataframes_list = []
 
@@ -51,4 +53,4 @@ for i in range(len(dataframes_list)):
         pass
 
 
-
+"""

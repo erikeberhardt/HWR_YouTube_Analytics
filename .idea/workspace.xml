@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="470f107c-753b-48fb-ab8c-18c827c2f40a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2021-06-16_API_code_Erik/Erik_most_trending_videos.py" beforeDir="false" afterPath="$PROJECT_DIR$/2021-06-16_API_code_Erik/Erik_most_trending_videos.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2021-06-16_API_code_Erik/compare.py" beforeDir="false" afterPath="$PROJECT_DIR$/2021-06-16_API_code_Erik/compare.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2021-06-16_API_code_Erik/schedule.py" beforeDir="false" afterPath="$PROJECT_DIR$/2021-06-16_API_code_Erik/schedule.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +21,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -37,6 +41,9 @@
       <workItem from="1624023962123" duration="1217000" />
       <workItem from="1624207607200" duration="23000" />
       <workItem from="1624637471043" duration="21000" />
+      <workItem from="1625323670996" duration="42000" />
+      <workItem from="1625401475780" duration="602000" />
+      <workItem from="1625406518855" duration="4181000" />
     </task>
     <servers />
   </component>
