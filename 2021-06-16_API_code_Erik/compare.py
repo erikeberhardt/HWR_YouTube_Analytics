@@ -1,6 +1,7 @@
 import pandas as pd
 import os
 from os import listdir
+import numpy as np
 
 #get all files in directory and store them in a list
 #TO_EDIT: You would also have to change this path to your directory. As far as I'm aware, paths can be written
@@ -8,10 +9,9 @@ from os import listdir
 mypath = r"C:\Users\Erik\Documents\GitHub\big_data_youtube\2021-06-16_API_code_Erik\Trending_Videos_Erik\\"
 
 #create a list with all filenames
-files = [f for f in listdir(mypath)]
+files = np.sort([f for f in listdir(mypath)])
 
-print(files)
-"""
+
 #create empty df list
 dataframes_list = []
 
@@ -51,6 +51,3 @@ for i in range(len(dataframes_list)):
         print(i, i+1, x)
     else:
         pass
-
-
-"""

@@ -14,4 +14,4 @@ while True:
     #print the loop variable
     print("This is loop number " + str(loop) +".")
     #wait for 15 minutes to download the next dataset
-    time.sleep(5)
+    time.sleep(1)
