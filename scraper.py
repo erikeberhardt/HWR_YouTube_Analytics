@@ -18,8 +18,8 @@ header = ["video_id"] + snippet_features + ["trending_date", "tags", "view_count
                                             "comment_count", "thumbnail_link", "comments_disabled",
                                             "ratings_disabled", "description"] + ["category_name"] + ["country"]
 
-#TO_EDIT: my API Key
-api_key = "AIzaSyCLlldC_cTBAVSzzEY2oEWV6B35cVRBlik"
+#TO_EDIT: Insert your API key in the following variable
+api_key = ""
 #TO_EDIT: the list of the country codes
 country_codes = ["GB","AU","US", "CA", "IE"]
 
