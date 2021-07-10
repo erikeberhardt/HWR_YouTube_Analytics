@@ -9,9 +9,9 @@ import numpy as np
 unsafe_characters = ['\n', '"']
 
 snippet_features =  ["title",
-                    "publishedAt", #where does this come from?
+                    "publishedAt",
                     "channelId",
-                    "channelTitle", #where does this come from?
+                    "channelTitle",
                     "categoryId"]
 
 header = ["video_id"] + snippet_features + ["trending_date", "tags", "view_count", "likes", "dislikes",
@@ -20,10 +20,10 @@ header = ["video_id"] + snippet_features + ["trending_date", "tags", "view_count
 
 #TO_EDIT: Insert your API key in the following variable
 api_key = ""
-#TO_EDIT: the list of the country codes
+
+#the list of the country codes
 country_codes = ["GB","AU","US", "CA", "IE"]
 
-#from here on the code is based on the github repo (except for the path in the write function in the end)
 #actual processing
 #preparing the features
 def prepare_feature(feature):
@@ -34,19 +34,17 @@ def prepare_feature(feature):
 
 #getting the data from the API
 def api_request(page_token, country_code):
+    #define global variable with the country, which is currently checked, in order to add it as seperate column
+    #at a later stage
     global land
     land = country_code
     # Builds the URL and requests the JSON from it
-    #actually works
-    #https://www.googleapis.com/youtube/v3/videos?part=id,statistics,snippet&chart=mostPopular&regionCode=US&maxResults=50&key=AIzaSyCLlldC_cTBAVSzzEY2oEWV6B35cVRBlik
     request_url = f"https://www.googleapis.com/youtube/v3/videos?part=id,statistics,snippet{page_token}chart=mostPopular&regionCode={country_code}&maxResults=50&key={api_key}"
     request = requests.get(request_url)
     #we should get status code 200, we can check for this as well
     if request.status_code == 429:
         print("Temp-Banned due to excess requests, please wait and continue later")
         sys.exit()
-    #elif request.status_code == 200:
-        #print("Yeah, it worked!")
     return request.json()
 
 #piping the tags
@@ -75,7 +73,10 @@ def get_videos(items):
 
         # This list contains all of the features in snippet that are 1 deep and require no special processing
         features = [prepare_feature(snippet.get(feature, "")) for feature in snippet_features]
+
+        #extract category_id in order to match them to category name
         ourfeature = features[4].replace('"', '')
+
         # The following are special case features which require unique processing, or are not within the snippet dict
         description = snippet.get("description", "")
         thumbnail_link = snippet.get("thumbnails", dict()).get("default", dict()).get("url", "")
@@ -83,6 +84,7 @@ def get_videos(items):
         tags = get_tags(snippet.get("tags", ["[none]"]))
         view_count = statistics.get("viewCount", 0)
 
+        #matching the category_id to category name
         conditions = [
             (ourfeature == '2'),
             (ourfeature == '1'),
@@ -124,6 +126,8 @@ def get_videos(items):
                    'Family', 'Foreign', 'Horror', 'Sci-Fi/Fantasy', 'Thriller', 'Shorts', 'Shows', 'Trailers']
 
         category_name = [str(np.select(conditions, choices))]
+
+        #adding country column
         country = [land]
 
         # This may be unclear, essentially the way the API works is that if a video has comments or ratings disabled
